@@ -1,8 +1,9 @@
 import React from 'react';
 import qs from 'query-string';
 import 'whatwg-fetch';
+import { connect } from 'react-redux'
 
-export default class Callback extends React.Component {
+class Callback extends React.Component {
     constructor(props) {
         super(props);
 
@@ -10,6 +11,8 @@ export default class Callback extends React.Component {
             code: null,
             accessData: null,
         };
+
+        console.log(this.props);
 
         this.getAuthorisation = this.getAuthorisation.bind(this);
     }
@@ -60,3 +63,19 @@ export default class Callback extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      user : state.user
+    }
+  }
+
+const mapDispatchToProps = dispatch => {
+    return {
+      addUser : () => dispatch({
+        type : 'addUser'
+      })
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Callback)
