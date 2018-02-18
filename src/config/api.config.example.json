@@ -1,0 +1,7 @@
+{
+    "monzo": {
+        "client_id":"ID",
+        "redirect_uri": "URI",
+        "client_secret": "SECRET"
+    }
+}
